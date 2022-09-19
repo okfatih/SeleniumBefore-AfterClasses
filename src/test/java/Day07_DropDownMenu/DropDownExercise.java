@@ -1,10 +1,12 @@
 package Day07_DropDownMenu;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -34,6 +36,24 @@ public class DropDownExercise {
     int dropdownListeSayisi = dropdown.size();
     int expectedListe = 45;
     Assert.assertNotEquals(expectedListe,dropdownListeSayisi);
+
+    }
+    @Test
+    public void test2(){
+    WebElement dropdownmenu =     driver.findElement(By.xpath("//*[@id='searchDropdownBox']"));
+    dropdownmenu.sendKeys("Books");
+  driver.findElement(By.xpath("//*[@id='twotabsearchtextbox']")).sendKeys("Java",Keys.ENTER);;
+        WebElement sonucYazisi = driver.findElement(By.xpath("//*[@class='a-section a-spacing-small a-spacing-top-small']"));
+        System.out.println(sonucYazisi.getText());
+//           4.Sonucun Java kelimesini icerdigini testedin
+        String expectedKelime = "Java";
+        String actualSonucYazisi = sonucYazisi.getText();
+        Assert.assertTrue(actualSonucYazisi.contains(expectedKelime));
+    }
+
+    @AfterClass
+    public static void tearDown(){
+        driver.close();
     }
     }
 

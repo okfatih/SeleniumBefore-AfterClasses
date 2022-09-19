@@ -28,16 +28,20 @@ public class Odev {
     public void test1(){
         WebElement signinButonu = driver.findElement(By.xpath("//*[@class='login']"));
         signinButonu.click();
-    WebElement emailbox = driver.findElement(By.xpath("//*[@id='email_create']"));
-    emailbox.sendKeys("gmail.com", Keys.ENTER);
+       WebElement emailbox =  driver.findElement(By.xpath("//*[@id='email_create']"));
+       emailbox.sendKeys("gmail.com",Keys.ENTER);
+       WebElement invalidEmailAlert = driver.findElement(By.xpath("//*[text()='Invalid email address.']"));
+       Assert.assertTrue(invalidEmailAlert.isDisplayed());
+  //  WebElement emailbox = driver.findElement(By.xpath("//*[@id='email_create']"));
+   // emailbox.sendKeys("gmail.com", Keys.ENTER);
     //Assert.assertTrue(driver.findElement(By.xpath("//p[@class='alert alert-danger']")).isDisplayed());
 
 
-    Assert.assertTrue(driver.findElement(By.xpath("//*[text()='Invalid email address.']")).isDisplayed());
+    //Assert.assertTrue(driver.findElement(By.xpath("//*[text()='Invalid email address.']")).isDisplayed());
     }
 @AfterClass
-    public void teardown(){
-        driver.close();
+    public static void teardown(){
+       driver.close();
 
 
 }
