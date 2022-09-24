@@ -10,12 +10,14 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 import java.time.Duration;
 import java.util.List;
 
 public class DropDownExercise {
     static WebDriver driver;
+    static Select secim;
     @BeforeClass
     public static void setup(){
         WebDriverManager.chromedriver().setup();
@@ -27,6 +29,7 @@ public class DropDownExercise {
 @Test
     public void test1(){
     List<WebElement> dropdown =driver.findElements(By.xpath("//option"));
+
     System.out.println(dropdown.size());
     for (WebElement e:dropdown
          ) {
@@ -40,8 +43,10 @@ public class DropDownExercise {
     }
     @Test
     public void test2(){
-    WebElement dropdownmenu =     driver.findElement(By.xpath("//*[@id='searchDropdownBox']"));
-    dropdownmenu.sendKeys("Books");
+       WebElement dropdownmenu = driver.findElement(By.xpath(""));
+         secim = new Select(dropdownmenu);
+        secim.selectByValue("Books");
+    //dropdownmenu.sendKeys("Books");
   driver.findElement(By.xpath("//*[@id='twotabsearchtextbox']")).sendKeys("Java",Keys.ENTER);;
         WebElement sonucYazisi = driver.findElement(By.xpath("//*[@class='a-section a-spacing-small a-spacing-top-small']"));
         System.out.println(sonucYazisi.getText());
