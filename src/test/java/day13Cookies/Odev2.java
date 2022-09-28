@@ -1,6 +1,13 @@
 package day13Cookies;
 
-public class Odev2 {
+import Utilities.TestBaseBeforeAfter;
+import org.junit.Test;
+
+public class Odev2 extends TestBaseBeforeAfter {
+    @Test
+    public void test1() {
+
+    }
 }
 /*
 Bir Class olusturun D19_WebtablesHomework
