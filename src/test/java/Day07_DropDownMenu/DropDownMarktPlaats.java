@@ -28,7 +28,7 @@ public class DropDownMarktPlaats {
     }
     @Test
     public void test1(){
-        driver.findElement(By.xpath("//*[@class='gdpr-consent-button hz-Button hz-Button--primary hz-Button--lg']")).click();
+       // driver.findElement(By.xpath("//*[@class='gdpr-consent-button hz-Button hz-Button--primary hz-Button--lg']")).click();
         //Select objesi ile drop down menu
         WebElement ddm  = driver.findElement(By.xpath("(//*[@class='hz-Dropdown-input'])[1]"));
         secim = new Select(ddm);
@@ -66,5 +66,9 @@ public class DropDownMarktPlaats {
         String expectedKelime = "bmw";
         Assert.assertTrue(sonucYazsisi.contains(expectedKelime));
 
+    }
+    @Test
+    public void test4(){
+      
     }
 }

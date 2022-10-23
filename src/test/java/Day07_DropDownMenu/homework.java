@@ -11,6 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
 import java.time.Duration;
+import java.util.List;
 
 public class homework {
     static WebDriver driver;
@@ -41,6 +42,24 @@ public class homework {
         // 5. Sign in tusuna basin
         driver.findElement(By.xpath("//*[@class='btn btn-primary']")).click();
 
+
+    }
+
+    @Test
+    public void test2() {
+        /*
+        Linktext ile locate etme denemesi
+        ve partial link text denemesi
+        ikisi de başarıyla locate edildi
+        Elementleri liste atma tekrarı
+         */
+        driver.get("https://amazon.com");
+        List<WebElement> linkler = driver.findElements(By.tagName("a"));
+        System.out.println(linkler.size());
+        WebElement linkText = driver.findElement(By.linkText("Become an Affiliate"));
+        WebElement partialLinkText = driver.findElement(By.partialLinkText("Advert"));
+        partialLinkText.click();
+        driver.close();
 
     }
 }

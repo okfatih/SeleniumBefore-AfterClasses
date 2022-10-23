@@ -31,7 +31,7 @@ public class C03_WaitMethodlariSyncronizhation extends TestBaseBeforeAfter {
                   max belirttiğimiz süre altında bütün web elementler için bekler
                     */
     /*
-        explicitWait itsgoneWE görünür olmasını beklerken o web elementinin locatini kullanarak assert yapmak
+        explicitWait bir web elementinin görünür olmasını beklerken o web elementinin locatini kullanarak assert yapmak
         sorun olur ve exception fırlatır. Henüz görülmeyen bir Webelementin locate edilmeside otamasyon için
         mümkün olmaz. Bu durumda bekleme işlemi için explicitWait'i locate ile birlikte kullanırız
          */

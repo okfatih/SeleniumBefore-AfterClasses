@@ -41,7 +41,7 @@ public class C02_windowShandle {
         driver.findElement(By.xpath("//*[text()='Click Here']")).click();
 
         List<String> windowList = new ArrayList<String>(driver.getWindowHandles());
-
+        Thread.sleep(3000);
         driver.switchTo().window(windowList.get(1));
 
         //Acilan yeni pencerenin sayfa başlığının (title) “New Window” oldugunu dogrulayin.
@@ -54,6 +54,16 @@ public class C02_windowShandle {
         Assert.assertEquals("The Internet",driver.getTitle());
     }
 
+    @Test
+    public void test2() throws InterruptedException {
+        driver.get("https://the-internet.herokuapp.com/windows");
+        String ilkSiteHandle = driver.getWindowHandle();
+        Thread.sleep(1500);
+        driver.findElement(By.xpath("//*[text()='Click Here']")).click();
+        List<String>windowHandles =new ArrayList<String>(driver.getWindowHandles());
+        Thread.sleep(3000);
+        driver.switchTo().window(windowHandles.get(0));
+    }
 }
 /*
 Tests package’inda yeni bir class olusturun: WindowHandle2
